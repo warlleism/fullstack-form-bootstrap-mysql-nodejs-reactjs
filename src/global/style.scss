@@ -1,2 +1,18 @@
-body{
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*::-webkit-scrollbar {
+    width: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: linear-gradient(rgb(0, 255, 149), rgb(40, 188, 247));
+}
+
+body {
+    background: linear-gradient(to top, #00ff95, #28c7f7);
+
 }
