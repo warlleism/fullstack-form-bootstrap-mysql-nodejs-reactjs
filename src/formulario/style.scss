@@ -2,7 +2,7 @@
 .conteiner-user-info {
     width: 50%;
     display: flex;
-    margin: 50px auto;
+    margin: 200px auto;
     flex-direction: column;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
@@ -46,7 +46,8 @@
 
     form {
         button {
-            background: #1059f5;
+            padding: 10px 20px;
+            background: #0167ff;
         }
 
         .personal-info {

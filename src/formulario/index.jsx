@@ -22,7 +22,6 @@ const Formulario = () => {
         skills: []
     }
 
-
     const [dadosPessoais, setDadosPessoais] = useState(dados_pessoas_initial)
 
     const Validacao = (valid, nome) => {
@@ -49,23 +48,29 @@ const Formulario = () => {
         if (window.scrollY >= 0) {
             user.style.maxWidth = '70px'
             phone.style.maxWidth = '60px'
+            user.style.border = 'solid 2px #05f1db'
+            phone.style.border = 'solid 0px #05f1db'
         }
 
         if (window.scrollY >= 328) {
             user.style.maxWidth = '60px'
             phone.style.maxWidth = '80px'
             social.style.maxWidth = '60px'
+            user.style.border = 'solid 0px #05f1db'
+            social.style.border = 'solid 0px #05f1db'
+            phone.style.border = 'solid 2px #05f1db'
         }
 
         if (window.scrollY >= 727) {
             phone.style.maxWidth = '60px'
             social.style.maxWidth = '70px'
+            social.style.border = 'solid 2px #05f1db'
+            phone.style.border = 'solid 0px #05f1db'
         }
     })
 
     return (
         <div className="conteiner-user-info">
-            {console.log(dadosPessoais)}
             <div className="time-line">
                 <a href="#person-info">
                     <img src={require('../image/user.png')} alt="" id="user" />
@@ -86,13 +91,13 @@ const Formulario = () => {
 
                     <Form.Group className="mb-3 field" controlId="formBasicEmail">
                         <Form.Label>Nome completo:</Form.Label>
-                        <Form.Control type="text" required onChange={(e) => setDadosPessoais({ ...dadosPessoais, nome: e.target.value })} />
+                        <Form.Control type="text" placeholder="Maria da Silva" required onChange={(e) => setDadosPessoais({ ...dadosPessoais, nome: e.target.value })} />
                         {Validacao(dadosPessoais.nome == '', 'nome')}
                     </Form.Group>
 
                     <Form.Group className="mb-3 field" controlId="formBasicEmail">
                         <Form.Label>Email:</Form.Label>
-                        <Form.Control type="email" required onChange={(e) => setDadosPessoais({ ...dadosPessoais, email: e.target.value })} />
+                        <Form.Control type="email" placeholder="nome@examplo.com" required onChange={(e) => setDadosPessoais({ ...dadosPessoais, email: e.target.value })} />
                         {Validacao(dadosPessoais.email == '', 'email')}
 
                     </Form.Group>
@@ -105,19 +110,29 @@ const Formulario = () => {
                                 type="number"
                                 value={dadosPessoais.cpf}
                                 required
+                                placeholder="00000000000"
                                 onChange={(e) => setDadosPessoais({ ...dadosPessoais, cpf: e.target.value.length > 11 ? dadosPessoais.cpf : e.target.value })} />
+                             {
+                                dadosPessoais.cpf.length >= 13
+                                    ?
+                                    <Form.Text className="text-muted">
+                                        formato incorreto
+                                    </Form.Text>
+                                    :
+                                    false
+                            }
                             {Validacao(dadosPessoais.cpf == '', 'cpf')}
                         </Form.Group>
 
                         <Form.Group className="mb-3 field" controlId="formBasicEmail">
                             <Form.Label>Cargo:</Form.Label>
-                            <Form.Control type="text" required onChange={(e) => setDadosPessoais({ ...dadosPessoais, cargo: e.target.value })} />
+                            <Form.Control type="text" placeholder="Administrador"  required onChange={(e) => setDadosPessoais({ ...dadosPessoais, cargo: e.target.value })} />
                             {Validacao(dadosPessoais.cargo == '', 'cargo')}
                         </Form.Group>
 
                         <Form.Group className="mb-3 field" controlId="formBasicEmail">
-                            <Form.Label>Pretensão salárial:</Form.Label>
-                            <Form.Control type="number" required onChange={(e) => setDadosPessoais({ ...dadosPessoais, salario: e.target.value })} />
+                            <Form.Label>Pretensão salárial R$:</Form.Label>
+                            <Form.Control type="number" placeholder="1200" required onChange={(e) => setDadosPessoais({ ...dadosPessoais, salario: e.target.value })} />
                             {Validacao(dadosPessoais.salario == '', 'pretensão salárial')}
                         </Form.Group>
                     </div>
@@ -136,7 +151,16 @@ const Formulario = () => {
 
                         <Form.Group className="mb-3 field" controlId="formBasicEmail">
                             <Form.Label>Whatsapp:</Form.Label>
-                            <Form.Control type="number" required onChange={(e) => setDadosPessoais({ ...dadosPessoais, telefone: e.target.value })} />
+                            <Form.Control type="text" placeholder="(55)999999999" required onChange={(e) => setDadosPessoais({ ...dadosPessoais, telefone: e.target.value })} />
+                            {
+                                dadosPessoais.telefone.length >= 14
+                                    ?
+                                    <Form.Text className="text-muted">
+                                        formato incorreto
+                                    </Form.Text>
+                                    :
+                                    false
+                            }
                             {Validacao(dadosPessoais.telefone == '', 'whatsapp')}
                         </Form.Group>
 
@@ -174,27 +198,27 @@ const Formulario = () => {
 
                     <Form.Group className="mb-3 field" controlId="formBasicEmail">
                         <Form.Label>Linkedin:</Form.Label>
-                        <Form.Control type="text" required placeholder="https://www.linkedin.com/" onChange={(e) => setDadosPessoais({ ...dadosPessoais, linkedin: e.target.value })} />
+                        <Form.Control type="text" placeholder="https://www.linkedin.com/" onChange={(e) => setDadosPessoais({ ...dadosPessoais, linkedin: e.target.value })} />
                         {Validacao(dadosPessoais.linkedin == '')}
                     </Form.Group>
 
                     <Form.Group className="mb-3 field" controlId="formBasicEmail">
                         <Form.Label>Github:</Form.Label>
-                        <Form.Control type="text" required placeholder="https://www.github.com/" onChange={(e) => setDadosPessoais({ ...dadosPessoais, github: e.target.value })} />
+                        <Form.Control type="text" placeholder="https://www.github.com/" onChange={(e) => setDadosPessoais({ ...dadosPessoais, github: e.target.value })} />
                         {Validacao(dadosPessoais.github == '')}
                     </Form.Group>
 
                     <Form.Group className="mb-3 field" controlId="formBasicEmail">
                         <Form.Label>Stack Overflow:</Form.Label>
-                        <Form.Control type="text" required placeholder="https://www.stackoverflow.com/" onChange={(e) => setDadosPessoais({ ...dadosPessoais, stack: e.target.value })} />
+                        <Form.Control type="text" placeholder="https://www.stackoverflow.com/" onChange={(e) => setDadosPessoais({ ...dadosPessoais, stack: e.target.value })} />
                         {Validacao(dadosPessoais.stack == '')}
                     </Form.Group>
-                    {Validacao(dadosPessoais.skills == '', 'necessidade especial')}
                 </div>
 
                 <div className="personal-info" id="person-social" >
                     <Form.Label>Skills:</Form.Label>
                     <Select setDados={setDadosPessoais} dados={dadosPessoais} />
+                    {Validacao(dadosPessoais.skills == '', 'skills')}
                 </div>
 
                 <Button variant="primary" type="submit" style={{ border: "none" }}>

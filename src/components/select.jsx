@@ -3,9 +3,7 @@ import Form from 'react-bootstrap/Form';
 
 const Select = (props) => {
 
-    const skills = ['HTML', 'CSS', 'PHP', 'JavaScript', 'Java', 'Ruby', 'Python', 'C#', 'React', 'Angular', 'VUE', 'jQuery', 'Svelte', 'Bootstrap', 'Django', 'Laravel', 'ExpressJS', 'Java', 'NodeJS', 'Elixir', 'Asp .NET', 'Spring Boot', 'Koa', 'Phoenix']
-
-
+    const skills = ['HTML', 'CSS', 'JavaScript', 'PHP', 'Java', 'Ruby', 'Python', 'C#', 'React', 'Angular', 'VUE', 'jQuery', 'Svelte', 'Bootstrap', 'Django', 'Laravel', 'ExpressJS', 'Java', 'NodeJS', 'Elixir', 'Asp .NET', 'Spring Boot', 'Koa', 'Phoenix', 'MongoDb', 'MySql', 'Oracle', 'SQL Server', 'PostgreSQL', 'UI', 'UX', 'Web Design']
 
     const filter = (event) => {
 
