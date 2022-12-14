@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Select from "../components/select";
 import './style.scss'
 
 const Formulario = () => {
@@ -17,8 +18,10 @@ const Formulario = () => {
         necessidade: 'initial',
         linkedin: 'initial',
         github: 'initial',
-        stack: 'initial'
+        stack: 'initial',
+        skills: []
     }
+
 
     const [dadosPessoais, setDadosPessoais] = useState(dados_pessoas_initial)
 
@@ -33,7 +36,6 @@ const Formulario = () => {
             )
         }
     }
-
 
     const EnviarDados = (event) => {
         event.preventDefault()
@@ -63,7 +65,7 @@ const Formulario = () => {
 
     return (
         <div className="conteiner-user-info">
-
+            {console.log(dadosPessoais)}
             <div className="time-line">
                 <a href="#person-info">
                     <img src={require('../image/user.png')} alt="" id="user" />
@@ -187,7 +189,12 @@ const Formulario = () => {
                         <Form.Control type="text" required placeholder="https://www.stackoverflow.com/" onChange={(e) => setDadosPessoais({ ...dadosPessoais, stack: e.target.value })} />
                         {Validacao(dadosPessoais.stack == '')}
                     </Form.Group>
+                    {Validacao(dadosPessoais.skills == '', 'necessidade especial')}
+                </div>
 
+                <div className="personal-info" id="person-social" >
+                    <Form.Label>Skills:</Form.Label>
+                    <Select setDados={setDadosPessoais} dados={dadosPessoais} />
                 </div>
 
                 <Button variant="primary" type="submit" style={{ border: "none" }}>
