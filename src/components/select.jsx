@@ -5,6 +5,8 @@ const Select = (props) => {
 
     const skills = ['HTML', 'CSS', 'JavaScript', 'PHP', 'Java', 'Ruby', 'Python', 'C#', 'React', 'Angular', 'VUE', 'jQuery', 'Svelte', 'Bootstrap', 'Django', 'Laravel', 'ExpressJS', 'Java', 'NodeJS', 'Elixir', 'Asp .NET', 'Spring Boot', 'Koa', 'Phoenix', 'MongoDb', 'MySql', 'Oracle', 'SQL Server', 'PostgreSQL', 'UI', 'UX', 'Web Design']
 
+    console.log(props.dados.skills)
+
     const filter = (event) => {
 
         if (props.dados.skills.includes(event)) {
