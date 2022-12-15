@@ -11,11 +11,11 @@ class Cadastro extends Model {
             apresentacao: DataTypes.STRING,
             telefone: DataTypes.STRING,
             genero: DataTypes.STRING,
-            necessidades: DataTypes.STRING,
+            necessidade: DataTypes.STRING,
             linkedin: DataTypes.STRING,
             github: DataTypes.STRING,
             stackoverflow: DataTypes.STRING,
-            skils: DataTypes.STRING
+            skills: DataTypes.STRING
         }, {
             sequelize
         })
