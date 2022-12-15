@@ -45,6 +45,8 @@ const Formulario = () => {
         const phone = document.getElementById('phone')
         const social = document.getElementById('social')
 
+        console.log(window.scrollY)
+
         if (window.scrollY >= 0) {
             user.style.maxWidth = '70px'
             phone.style.maxWidth = '60px'
@@ -61,7 +63,7 @@ const Formulario = () => {
             phone.style.border = 'solid 2px #05f1db'
         }
 
-        if (window.scrollY >= 727) {
+        if (window.scrollY >= 918) {
             phone.style.maxWidth = '60px'
             social.style.maxWidth = '70px'
             social.style.border = 'solid 2px #05f1db'
@@ -112,7 +114,7 @@ const Formulario = () => {
                                 required
                                 placeholder="00000000000"
                                 onChange={(e) => setDadosPessoais({ ...dadosPessoais, cpf: e.target.value.length > 11 ? dadosPessoais.cpf : e.target.value })} />
-                             {
+                            {
                                 dadosPessoais.cpf.length >= 13
                                     ?
                                     <Form.Text className="text-muted">
@@ -126,7 +128,7 @@ const Formulario = () => {
 
                         <Form.Group className="mb-3 field" controlId="formBasicEmail">
                             <Form.Label>Cargo:</Form.Label>
-                            <Form.Control type="text" placeholder="Administrador"  required onChange={(e) => setDadosPessoais({ ...dadosPessoais, cargo: e.target.value })} />
+                            <Form.Control type="text" placeholder="Administrador" required onChange={(e) => setDadosPessoais({ ...dadosPessoais, cargo: e.target.value })} />
                             {Validacao(dadosPessoais.cargo == '', 'cargo')}
                         </Form.Group>
 
