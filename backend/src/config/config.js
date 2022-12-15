@@ -5,7 +5,7 @@ module.exports = {
     password: "root",
     database: "formulario",
     define: {
-        timestamp: true,
-        underscored: true,
+      timestamp: true,
+      underscored: true,
     },
-};
+  };

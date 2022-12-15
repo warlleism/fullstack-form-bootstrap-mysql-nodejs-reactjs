@@ -3,19 +3,19 @@ const { Model, DataTypes } = require('sequelize')
 class Cadastro extends Model {
     static init(sequelize) {
         super.init({
-            name: DataTypes.STRING,
+            nome: DataTypes.STRING,
             email: DataTypes.STRING,
-            cpf: DataTypes.NUMBER,
+            cpf: DataTypes.STRING,
             cargo: DataTypes.STRING,
-            salario: DataTypes.NUMBER,
+            salario: DataTypes.STRING,
             apresentacao: DataTypes.STRING,
-            numero: DataTypes.NUMBER,
+            telefone: DataTypes.STRING,
             genero: DataTypes.STRING,
             necessidades: DataTypes.STRING,
             linkedin: DataTypes.STRING,
             github: DataTypes.STRING,
             stackoverflow: DataTypes.STRING,
-            skils: DataTypes.STRING,
+            skils: DataTypes.STRING
         }, {
             sequelize
         })

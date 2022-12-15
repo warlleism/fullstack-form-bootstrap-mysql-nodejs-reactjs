@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Select from "../components/select";
@@ -23,6 +23,18 @@ const Formulario = () => {
     }
 
     const [dadosPessoais, setDadosPessoais] = useState(dados_pessoas_initial)
+
+    const [data, setData] = useState([])
+    const [skills, setSkills] = useState()
+
+    useEffect(() => {
+        fetch("http://localhost:3003/readAll")
+            .then(res => res.json())
+            .then(data => {
+                setData(data)
+                setSkills(data.skils.split(','))
+            })
+    }, [])
 
     const Validacao = (valid, nome) => {
         if (valid) {
@@ -71,6 +83,7 @@ const Formulario = () => {
 
     return (
         <div className="conteiner-user-info">
+            {console.log(skills)}
             <div className="time-line">
                 <a href="#person-info">
                     <img src={require('../image/user.png')} alt="" id="user" />
@@ -220,6 +233,24 @@ const Formulario = () => {
                     <Select setDados={setDadosPessoais} dados={dadosPessoais} />
                     {Validacao(dadosPessoais.skills == '', 'skills')}
                 </div>
+
+                {/* {
+                    skills
+                        ?
+                        <div className="personal-info" id="person-social" >
+                            {
+                                skills.map((e) => {
+                                    return (
+                                        <>
+                                            <div>{e}</div>
+                                        </>
+                                    )
+                                })
+                            }
+                        </div>
+                        :
+                        false
+                } */}
 
                 <Button variant="primary" type="submit" style={{ border: "none" }}>
                     Enviar

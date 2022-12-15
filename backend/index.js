@@ -1,19 +1,19 @@
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const routes = require('./src/routes/routes')
+const Routes = require('./src/routes/routes')
 const app = express()
 
-app.listen(3003, () => {
-    console.log("conectado")
-})
+require('./src/database/index')
 
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyParser.json());
 
+app.listen(3003);
+
 app.use(cors({
-    origin: '*'
+  origin: '*'
 }));
 
-app.use(routes)
+app.use(Routes);

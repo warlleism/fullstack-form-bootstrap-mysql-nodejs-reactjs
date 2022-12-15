@@ -1,7 +1,7 @@
 const express = require("express");
 const Router = express.Router();
-const read = require('./read')
+const readAll = require('./read')
 
-Router.get("/read", read)
+Router.get("/readAll", readAll)
 
 module.exports = Router;
