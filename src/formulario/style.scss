@@ -7,7 +7,6 @@
     justify-content: center;
     font-family: 'Roboto', sans-serif;
 
-
     .time-line {
         z-index: 2;
         top: 120px;
@@ -27,13 +26,11 @@
                 max-width: 60px;
                 border-radius: 50px;
                 transition: .2s ease-in-out;
-
             }
 
             img:hover {
                 box-sizing: border-box;
                 border: solid 2px #24fafa;
-
             }
         }
 
