@@ -45,8 +45,6 @@ const Formulario = () => {
         const phone = document.getElementById('phone')
         const social = document.getElementById('social')
 
-        console.log(window.scrollY)
-
         if (window.scrollY >= 0) {
             user.style.maxWidth = '70px'
             phone.style.maxWidth = '60px'
