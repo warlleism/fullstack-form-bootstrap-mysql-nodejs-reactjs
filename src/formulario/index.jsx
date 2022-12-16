@@ -247,7 +247,7 @@ const Formulario = () => {
                             <Form.Label>Necessidade especial:</Form.Label>
                             <Form.Select aria-label="Default select example" required onChange={(e) => setDadosPessoais({ ...dadosPessoais, necessidade: e.target.value })}>
                                 <option value=''>Selecione uma opção</option>
-                                <option value="Não tenho necessidade especiail">Não tenho necessidade especiail</option>
+                                <option value="Não tenho necessidade especiail">Não tenho necessidades especiais</option>
                                 <option value="Deficiência Física">Deficiência Física</option>
                                 <option value="Deficiência Mental">Deficiência Mental</option>
                                 <option value="Deficiência Auditiva">Deficiência Auditiva</option>
