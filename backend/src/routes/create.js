@@ -5,16 +5,16 @@ const CreateUser = async (req, res) => {
 
     var { nome, email, cpf, cargo, salario, apresentacao, telefone, genero, necessidade, linkedin, github, stackoverflow, skills } = req.body
 
-    // const user = Formulario.findOne({ where: email })
+    const user = await Formulario.findOne({ where: { cpf } })
 
-    // if (user) {
-    //     console.log(user)
-    //     return res.send({ status: 200, sucess: 'Email já cadastrado', icon: "info" });
-    // }
+    if (user) {
+        return res.send({ status: 200, sucess: 'CPF já cadastrado', icon: "info" });
+    }
 
     skills = skills.join()
 
     try {
+
 
         const formulario = await Formulario.create({ nome, email, cpf, cargo, salario, apresentacao, telefone, genero, necessidade, linkedin, github, stackoverflow, skills })
 
