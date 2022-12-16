@@ -8,12 +8,6 @@ import './style.scss'
 const Formulario = () => {
 
     useEffect(() => {
-        fetch("http://localhost:3003/readAll")
-            .then(res => res.json())
-            .then(data => {
-                setData(data)
-                setSkills(data.skils.split(','))
-            })
 
         let dadoStorage = JSON.parse(localStorage.getItem('dados'))
 
@@ -52,8 +46,6 @@ const Formulario = () => {
     }
 
     const [dadosPessoais, setDadosPessoais] = useState(dados_pessoas_initial)
-    const [data, setData] = useState([])
-    const [skills, setSkills] = useState()
 
     const Validacao = (valid, nome) => {
         if (valid) {
@@ -74,7 +66,6 @@ const Formulario = () => {
             'Content-Type': 'application/json',
         },
     };
-
 
     const EnviarDados = async (event) => {
         event.preventDefault()
@@ -285,24 +276,6 @@ const Formulario = () => {
                     <Form.Label>Skills:</Form.Label>
                     <Select setDados={setDadosPessoais} dados={dadosPessoais} />
                 </div>
-
-                {/* {
-                    skills
-                        ?
-                        <div className="personal-info" id="person-social" >
-                            {
-                                skills.map((e) => {
-                                    return (
-                                        <>
-                                            <div>{e}</div>
-                                        </>
-                                    )
-                                })
-                            }
-                        </div>
-                        :
-                        false
-                } */}
 
                 <Button variant="primary" type="submit" style={{ border: "none" }}>
                     Enviar
